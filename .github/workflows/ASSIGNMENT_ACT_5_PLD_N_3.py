@@ -24,7 +24,8 @@ def main():
         target = int(input("Search for number: "))
         
         result = search(numbers, target)
-        
+        #TEST
+    
         if isinstance(result, int):
             print(f"The number {target} occurred {result} time(s).")
         else:
