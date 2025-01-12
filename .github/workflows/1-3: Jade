@@ -63,7 +63,7 @@ def studentDetails():
     detailsFeature()
 
 def detailsFeature():
-    # Hardcoded student details for demonstration
+    # for demo
     student_info = {
         "Name": "John Doe",
         "Student ID": "202006000",
@@ -75,7 +75,8 @@ def detailsFeature():
 
     # Display ng dets
     print("\nStudent Details:")
-    print(f"Name: {student_info['Name']} stdID: {student_info['Student ID']}")
+    print(f"Name: {student_info['Name']}")
+    print(f"stdID: {student_info['Student ID']}")
     print(f"Level(s): {', '.join(student_info['Levels'])}")
     print(f"Number of terms: {', '.join(student_info['Number of Terms'])}")
     print(f"College(s): {', '.join(student_info['Colleges'])} Department(s): {', '.join(student_info['Departments'])}")
