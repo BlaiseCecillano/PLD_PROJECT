@@ -73,14 +73,14 @@ def detailsFeature():
         "Departments": ["Computer Science", "Physics"]
     }
 
-    # Display details in the specified format
+    # Display ng dets
     print("\nStudent Details:")
     print(f"Name: {student_info['Name']} stdID: {student_info['Student ID']}")
     print(f"Level(s): {', '.join(student_info['Levels'])}")
     print(f"Number of terms: {', '.join(student_info['Number of Terms'])}")
     print(f"College(s): {', '.join(student_info['Colleges'])} Department(s): {', '.join(student_info['Departments'])}")
 
-    # Save details to a file
+    # Save dets
     filename = f"std{student_info['Student ID']}details.txt"
     with open(filename, 'w') as file:
         file.write(f"Name: {student_info['Name']} stdID: {student_info['Student ID']}\n")
@@ -90,7 +90,7 @@ def detailsFeature():
 
     print(f"\nStudent details saved to {filename}")
 
-    # Simulate clearing the screen
+    # pause ng 3 seconds after
     time.sleep(3)
     os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -99,7 +99,7 @@ def detailsFeature():
     menuFeature()
 
 def statisticsFeature():
-    # Hardcoded statistics for demonstration
+    # for demo purposes
     student_id = "202006000"
     statistics_data = {
         "Undergraduate": {
@@ -125,7 +125,7 @@ def statisticsFeature():
         }
     }
 
-    # Display statistics in the specified format
+    # Display stats
     print("\n*******************Undergraduate Level************************")
     print(f"Overall average (major and minor) for all terms: {statistics_data['Undergraduate']['Overall Average']}")
     print("Average (major and minor) of each term:")
@@ -144,7 +144,7 @@ def statisticsFeature():
     print(f"Minimum grade(s) and in which term(s): {', '.join(statistics_data['Graduate (M)']['Minimum Grades'])}")
     print(f"Do you have any repeated course(s)? {statistics_data['Graduate (M)']['Repeated Courses']}")
 
-    # Save statistics to a file
+    # Save stats
     filename = f"std{student_id}statistics.txt"
     with open(filename, 'w') as file:
         file.write("*******************Undergraduate Level************************\n")
