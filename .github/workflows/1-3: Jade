@@ -20,7 +20,7 @@ def startFeature():
             degree_types = [x.strip() for x in degree_types_input.split(',') if x.strip() in ['M', 'D', 'B0']]
 
     print("Processing your selection...")
-    time.sleep(2)
+    time.sleep(2) #pause bago bumalik sa menu
 
     menuFeature()
 
@@ -96,7 +96,7 @@ def detailsFeature():
     os.system('cls' if os.name == 'nt' else 'clear')
 
     print("Redirecting to the menu...")
-    time.sleep(2)
+    time.sleep(2) #delay bago bumalik sa menu
     menuFeature()
 
 def statisticsFeature():
