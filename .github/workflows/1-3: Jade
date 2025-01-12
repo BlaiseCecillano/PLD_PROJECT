@@ -1,1 +1,193 @@
+import time
+import os
+
+def startFeature():
+    print("Welcome to the Student Management System")
+
+    student_level = input("Please select your student level (U for Undergraduate, G for Graduate, B for Both): ").upper()
+    while student_level not in ['U', 'G', 'B']:
+        print("Invalid input. Please choose from U, G, or B.")
+        student_level = input("Please select your student level (U for Undergraduate, G for Graduate, B for Both): ").upper()
+
+    degree_types = []
+    if student_level in ['G', 'B']:
+        degree_types_input = input("Please select your degree type(s) (M for Master's, D for Doctoral, B0 for Bachelor's, separate multiple with commas): ").upper()
+        degree_types = [x.strip() for x in degree_types_input.split(',') if x.strip() in ['M', 'D', 'B0']]
+
+        while not degree_types:
+            print("Invalid input. Please choose from M, D, B0, or a combination separated by commas.")
+            degree_types_input = input("Please select your degree type(s) (M for Master's, D for Doctoral, B0 for Bachelor's, separate multiple with commas): ").upper()
+            degree_types = [x.strip() for x in degree_types_input.split(',') if x.strip() in ['M', 'D', 'B0']]
+
+    print("Processing your selection...")
+    time.sleep(2)
+
+    menuFeature()
+
+def menuFeature():
+    while True:
+        print("\nStudent Management System Menu")
+        print("1. Student Details")
+        print("2. Statistics")
+        print("3. Transcript based on major courses")
+        print("4. Transcript based on minor courses")
+        print("5. Full transcript")
+        print("6. Previous transcript requests")
+        print("7. Select another student")
+        print("8. Terminate the system")
+
+        choice = input("Please select an option (1-8): ")
+
+        if choice == '1':
+            studentDetails()
+        elif choice == '2':
+            statisticsFeature()
+        elif choice == '3':
+            majorTranscript()
+        elif choice == '4':
+            minorTranscript()
+        elif choice == '5':
+            fullTranscript()
+        elif choice == '6':
+            previousRequests()
+        elif choice == '7':
+            startFeature()
+        elif choice == '8':
+            print("Terminating the system...")
+            break
+        else:
+            print("Invalid choice. Please try again.")
+
+def studentDetails():
+    print("Displaying student details...")
+    detailsFeature()
+
+def detailsFeature():
+    # Hardcoded student details for demonstration
+    student_info = {
+        "Name": "John Doe",
+        "Student ID": "202006000",
+        "Levels": ["Undergraduate", "Graduate"],
+        "Number of Terms": ["6", "4"],
+        "Colleges": ["Engineering", "Science"],
+        "Departments": ["Computer Science", "Physics"]
+    }
+
+    # Display details in the specified format
+    print("\nStudent Details:")
+    print(f"Name: {student_info['Name']} stdID: {student_info['Student ID']}")
+    print(f"Level(s): {', '.join(student_info['Levels'])}")
+    print(f"Number of terms: {', '.join(student_info['Number of Terms'])}")
+    print(f"College(s): {', '.join(student_info['Colleges'])} Department(s): {', '.join(student_info['Departments'])}")
+
+    # Save details to a file
+    filename = f"std{student_info['Student ID']}details.txt"
+    with open(filename, 'w') as file:
+        file.write(f"Name: {student_info['Name']} stdID: {student_info['Student ID']}\n")
+        file.write(f"Level(s): {', '.join(student_info['Levels'])}\n")
+        file.write(f"Number of terms: {', '.join(student_info['Number of Terms'])}\n")
+        file.write(f"College(s): {', '.join(student_info['Colleges'])} Department(s): {', '.join(student_info['Departments'])}\n")
+
+    print(f"\nStudent details saved to {filename}")
+
+    # Simulate clearing the screen
+    time.sleep(3)
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+    print("Redirecting to the menu...")
+    time.sleep(2)
+    menuFeature()
+
+def statisticsFeature():
+    # Hardcoded statistics for demonstration
+    student_id = "202006000"
+    statistics_data = {
+        "Undergraduate": {
+            "Overall Average": "85%",
+            "Term Averages": {
+                "Term 1": "88%",
+                "Term 2": "83%",
+                "Term 3": "84%"
+            },
+            "Maximum Grades": ["A+ in Term 1"],
+            "Minimum Grades": ["C in Term 3"],
+            "Repeated Courses": "No"
+        },
+        "Graduate (M)": {
+            "Overall Average": "90%",
+            "Term Averages": {
+                "Term 1": "92%",
+                "Term 2": "88%"
+            },
+            "Maximum Grades": ["A+ in Term 1"],
+            "Minimum Grades": ["B in Term 2"],
+            "Repeated Courses": "No"
+        }
+    }
+
+    # Display statistics in the specified format
+    print("\n*******************Undergraduate Level************************")
+    print(f"Overall average (major and minor) for all terms: {statistics_data['Undergraduate']['Overall Average']}")
+    print("Average (major and minor) of each term:")
+    for term, avg in statistics_data['Undergraduate']['Term Averages'].items():
+        print(f"{term}: {avg}")
+    print(f"Maximum grade(s) and in which term(s): {', '.join(statistics_data['Undergraduate']['Maximum Grades'])}")
+    print(f"Minimum grade(s) and in which term(s): {', '.join(statistics_data['Undergraduate']['Minimum Grades'])}")
+    print(f"Do you have any repeated course(s)? {statistics_data['Undergraduate']['Repeated Courses']}")
+
+    print("\n*******************Graduate(M) Level************************")
+    print(f"Overall average (major and minor) for all terms: {statistics_data['Graduate (M)']['Overall Average']}")
+    print("Average (major and minor) of each term:")
+    for term, avg in statistics_data['Graduate (M)']['Term Averages'].items():
+        print(f"{term}: {avg}")
+    print(f"Maximum grade(s) and in which term(s): {', '.join(statistics_data['Graduate (M)']['Maximum Grades'])}")
+    print(f"Minimum grade(s) and in which term(s): {', '.join(statistics_data['Graduate (M)']['Minimum Grades'])}")
+    print(f"Do you have any repeated course(s)? {statistics_data['Graduate (M)']['Repeated Courses']}")
+
+    # Save statistics to a file
+    filename = f"std{student_id}statistics.txt"
+    with open(filename, 'w') as file:
+        file.write("*******************Undergraduate Level************************\n")
+        file.write(f"Overall average (major and minor) for all terms: {statistics_data['Undergraduate']['Overall Average']}\n")
+        file.write("Average (major and minor) of each term:\n")
+        for term, avg in statistics_data['Undergraduate']['Term Averages'].items():
+            file.write(f"{term}: {avg}\n")
+        file.write(f"Maximum grade(s) and in which term(s): {', '.join(statistics_data['Undergraduate']['Maximum Grades'])}\n")
+        file.write(f"Minimum grade(s) and in which term(s): {', '.join(statistics_data['Undergraduate']['Minimum Grades'])}\n")
+        file.write(f"Do you have any repeated course(s)? {statistics_data['Undergraduate']['Repeated Courses']}\n\n")
+
+        file.write("*******************Graduate(M) Level************************\n")
+        file.write(f"Overall average (major and minor) for all terms: {statistics_data['Graduate (M)']['Overall Average']}\n")
+        file.write("Average (major and minor) of each term:\n")
+        for term, avg in statistics_data['Graduate (M)']['Term Averages'].items():
+            file.write(f"{term}: {avg}\n")
+        file.write(f"Maximum grade(s) and in which term(s): {', '.join(statistics_data['Graduate (M)']['Maximum Grades'])}\n")
+        file.write(f"Minimum grade(s) and in which term(s): {', '.join(statistics_data['Graduate (M)']['Minimum Grades'])}\n")
+        file.write(f"Do you have any repeated course(s)? {statistics_data['Graduate (M)']['Repeated Courses']}\n")
+
+    print(f"\nStatistics saved to {filename}")
+
+    # Simulate clearing the screen
+    time.sleep(3)
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+    print("Redirecting to the menu...")
+    time.sleep(2)
+    menuFeature()
+
+def majorTranscript():
+    print("Displaying transcript based on major courses...")
+
+def minorTranscript():
+    print("Displaying transcript based on minor courses...")
+
+def fullTranscript():
+    print("Displaying full transcript...")
+
+def previousRequests():
+    print("Displaying previous transcript requests...")
+
+if __name__ == "__main__":
+    startFeature()
+
 
