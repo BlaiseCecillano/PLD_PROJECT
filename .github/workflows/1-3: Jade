@@ -167,7 +167,7 @@ def statisticsFeature():
 
     print(f"\nStatistics saved to {filename}")
 
-    # Simulate clearing the screen
+    # Pause ng 3 seconds
     time.sleep(3)
     os.system('cls' if os.name == 'nt' else 'clear')
 
