@@ -1,5 +1,6 @@
-import time
 import os
+import csv
+import time
 
 def startFeature():
     print("Welcome to the Student Management System")
@@ -9,19 +10,62 @@ def startFeature():
         print("Invalid input. Please choose from U, G, or B.")
         student_level = input("Please select your student level (U for Undergraduate, G for Graduate, B for Both): ").upper()
 
-    degree_types = []
-    if student_level in ['G', 'B']:
-        degree_types_input = input("Please select your degree type(s) (M for Master's, D for Doctoral, B0 for Bachelor's, separate multiple with commas): ").upper()
-        degree_types = [x.strip() for x in degree_types_input.split(',') if x.strip() in ['M', 'D', 'B0']]
-
-        while not degree_types:
-            print("Invalid input. Please choose from M, D, B0, or a combination separated by commas.")
-            degree_types_input = input("Please select your degree type(s) (M for Master's, D for Doctoral, B0 for Bachelor's, separate multiple with commas): ").upper()
-            degree_types = [x.strip() for x in degree_types_input.split(',') if x.strip() in ['M', 'D', 'B0']]
+    # 9 digits of student ID
+    student_id = input("Please enter your 9-digit student ID: ")
+    while not student_id.isdigit() or len(student_id) != 9:
+        print("Invalid student ID. Please ensure it is exactly 9 digits.")
+        student_id = input("Please enter your 9-digit student ID: ")
 
     print("Processing your selection...")
-    time.sleep(30) #pause bago bumalik sa menu
+    time.sleep(1)
 
+    # function to display student details
+    studentDetails(student_level, student_id)
+
+def studentDetails(student_level, student_id):
+    print("Displaying student details...")
+
+    # folder path where the files are stored
+    folder_path = r"C:\Users\admin\OneDrive\Desktop\PLD-FinalProj"
+
+    # check file name base on the Student ID
+    file_name = f"std{student_id}Details.csv"
+    file_path = os.path.join(folder_path, file_name)
+
+    if not os.path.exists(file_path):
+        print(f"No file found for Student ID {student_id}.")
+        return
+
+    # display details of the selected CSV file
+    with open(file_path, mode='r') as file:
+        csv_reader = csv.DictReader(file)
+        
+        for row in csv_reader:
+            try:
+                # .get() in case there are missing columns
+                name = row.get('Name', 'N/A')
+                student_id_column = row.get('Student ID', 'N/A')
+                level = row.get('Level(s)', 'N/A')
+                number_of_terms = row.get('Number of Terms', 'N/A')
+                colleges = row.get('College(s)', 'N/A')
+                departments = row.get('Department(s)', 'N/A')
+                print("-" * 30)
+                print(f"Name: {name}")
+                print(f"Student ID: {student_id_column}")
+                print(f"Level(s): {level}")
+                print(f"Number of Terms: {number_of_terms}")
+                print(f"College(s): {colleges}")
+                print(f"Department(s): {departments}")
+                print("-" * 30)
+            except KeyError as e:
+                print(f"Missing column: {e} in row. Skipping this row.")
+
+    # Pause for 5 seconds before clearing the screen
+    time.sleep(5)
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+    print("Redirecting to the menu...")
+    time.sleep(5)  # delay before returning to the menu
     menuFeature()
 
 def menuFeature():
@@ -39,7 +83,7 @@ def menuFeature():
         choice = input("Please select an option (1-8): ")
 
         if choice == '1':
-            studentDetails()
+            startFeature()
         elif choice == '2':
             statisticsFeature()
         elif choice == '3':
@@ -55,138 +99,8 @@ def menuFeature():
         elif choice == '8':
             print("Terminating the system...")
             break
-        else:
-            print("Invalid choice. Please try again.")
-
-def studentDetails():
-    print("Displaying student details...")
-    detailsFeature()
-
-def detailsFeature():
-    # for demo
-    student_info = {
-        "Name": "John Doe",
-        "Student ID": "202006000",
-        "Levels": ["Undergraduate", "Graduate"],
-        "Number of Terms": ["6", "4"],
-        "Colleges": ["Engineering", "Science"],
-        "Departments": ["Computer Science", "Physics"]
-    }
-
-    # Display ng dets
-    print("\nStudent Details:")
-    print(f"Name: {student_info['Name']}")
-    print(f"stdID: {student_info['Student ID']}")
-    print(f"Level(s): {', '.join(student_info['Levels'])}")
-    print(f"Number of terms: {', '.join(student_info['Number of Terms'])}")
-    print(f"College(s): {', '.join(student_info['Colleges'])} Department(s): {', '.join(student_info['Departments'])}")
-
-    # Save dets
-    filename = f"std{student_info['Student ID']}details.txt"
-    with open(filename, 'w') as file:
-        file.write(f"Name: {student_info['Name']} stdID: {student_info['Student ID']}\n")
-        file.write(f"Level(s): {', '.join(student_info['Levels'])}\n")
-        file.write(f"Number of terms: {', '.join(student_info['Number of Terms'])}\n")
-        file.write(f"College(s): {', '.join(student_info['Colleges'])} Department(s): {', '.join(student_info['Departments'])}\n")
-
-    print(f"\nStudent details saved to {filename}")
-
-    # pause ng 3 seconds after
-    time.sleep(30)
-    os.system('cls' if os.name == 'nt' else 'clear')
-
-    print("Redirecting to the menu...")
-    time.sleep(30) #delay bago bumalik sa menu
-    menuFeature()
-
-def statisticsFeature():
-    # for demo purposes
-    student_id = "202006000"
-    statistics_data = {
-        "Undergraduate": {
-            "Overall Average": "85%",
-            "Term Averages": {
-                "Term 1": "88%",
-                "Term 2": "83%",
-                "Term 3": "84%"
-            },
-            "Maximum Grades": ["A+ in Term 1"],
-            "Minimum Grades": ["C in Term 3"],
-            "Repeated Courses": "No"
-        },
-        "Graduate (M)": {
-            "Overall Average": "90%",
-            "Term Averages": {
-                "Term 1": "92%",
-                "Term 2": "88%"
-            },
-            "Maximum Grades": ["A+ in Term 1"],
-            "Minimum Grades": ["B in Term 2"],
-            "Repeated Courses": "No"
-        }
-    }
-
-    # Display stats
-    print("\n*******************Undergraduate Level************************")
-    print(f"Overall average (major and minor) for all terms: {statistics_data['Undergraduate']['Overall Average']}")
-    print("Average (major and minor) of each term:")
-    for term, avg in statistics_data['Undergraduate']['Term Averages'].items():
-        print(f"{term}: {avg}")
-    print(f"Maximum grade(s) and in which term(s): {', '.join(statistics_data['Undergraduate']['Maximum Grades'])}")
-    print(f"Minimum grade(s) and in which term(s): {', '.join(statistics_data['Undergraduate']['Minimum Grades'])}")
-    print(f"Do you have any repeated course(s)? {statistics_data['Undergraduate']['Repeated Courses']}")
-
-    print("\n*******************Graduate(M) Level************************")
-    print(f"Overall average (major and minor) for all terms: {statistics_data['Graduate (M)']['Overall Average']}")
-    print("Average (major and minor) of each term:")
-    for term, avg in statistics_data['Graduate (M)']['Term Averages'].items():
-        print(f"{term}: {avg}")
-    print(f"Maximum grade(s) and in which term(s): {', '.join(statistics_data['Graduate (M)']['Maximum Grades'])}")
-    print(f"Minimum grade(s) and in which term(s): {', '.join(statistics_data['Graduate (M)']['Minimum Grades'])}")
-    print(f"Do you have any repeated course(s)? {statistics_data['Graduate (M)']['Repeated Courses']}")
-
-    # Save stats
-    filename = f"std{student_id}statistics.txt"
-    with open(filename, 'w') as file:
-        file.write("*******************Undergraduate Level************************\n")
-        file.write(f"Overall average (major and minor) for all terms: {statistics_data['Undergraduate']['Overall Average']}\n")
-        file.write("Average (major and minor) of each term:\n")
-        for term, avg in statistics_data['Undergraduate']['Term Averages'].items():
-            file.write(f"{term}: {avg}\n")
-        file.write(f"Maximum grade(s) and in which term(s): {', '.join(statistics_data['Undergraduate']['Maximum Grades'])}\n")
-        file.write(f"Minimum grade(s) and in which term(s): {', '.join(statistics_data['Undergraduate']['Minimum Grades'])}\n")
-        file.write(f"Do you have any repeated course(s)? {statistics_data['Undergraduate']['Repeated Courses']}\n\n")
-
-        file.write("*******************Graduate(M) Level************************\n")
-        file.write(f"Overall average (major and minor) for all terms: {statistics_data['Graduate (M)']['Overall Average']}\n")
-        file.write("Average (major and minor) of each term:\n")
-        for term, avg in statistics_data['Graduate (M)']['Term Averages'].items():
-            file.write(f"{term}: {avg}\n")
-        file.write(f"Maximum grade(s) and in which term(s): {', '.join(statistics_data['Graduate (M)']['Maximum Grades'])}\n")
-        file.write(f"Minimum grade(s) and in which term(s): {', '.join(statistics_data['Graduate (M)']['Minimum Grades'])}\n")
-        file.write(f"Do you have any repeated course(s)? {statistics_data['Graduate (M)']['Repeated Courses']}\n")
-
-    print(f"\nStatistics saved to {filename}")
-
-    # Pause ng 3 seconds
-    time.sleep(30)
-    os.system('cls' if os.name == 'nt' else 'clear')
-
-    print("Redirecting to the menu...")
-    time.sleep(30)
-    menuFeature()
-
-def majorTranscript():
-    print("Displaying transcript based on major courses...")
-
-def minorTranscript():
-    print("Displaying transcript based on minor courses...")
-
-def fullTranscript():
-    print("Displaying full transcript...")
-
-def previousRequests():
-    print("Displaying previous transcript requests...")
+    else:
+        print("Invalid choice. Please try again.")
 
 if __name__ == "__main__":
     startFeature()
