@@ -20,7 +20,7 @@ def startFeature():
             degree_types = [x.strip() for x in degree_types_input.split(',') if x.strip() in ['M', 'D', 'B0']]
 
     print("Processing your selection...")
-    time.sleep(2) #pause bago bumalik sa menu
+    time.sleep(30) #pause bago bumalik sa menu
 
     menuFeature()
 
@@ -92,11 +92,11 @@ def detailsFeature():
     print(f"\nStudent details saved to {filename}")
 
     # pause ng 3 seconds after
-    time.sleep(3)
+    time.sleep(30)
     os.system('cls' if os.name == 'nt' else 'clear')
 
     print("Redirecting to the menu...")
-    time.sleep(2) #delay bago bumalik sa menu
+    time.sleep(30) #delay bago bumalik sa menu
     menuFeature()
 
 def statisticsFeature():
@@ -169,11 +169,11 @@ def statisticsFeature():
     print(f"\nStatistics saved to {filename}")
 
     # Pause ng 3 seconds
-    time.sleep(3)
+    time.sleep(30)
     os.system('cls' if os.name == 'nt' else 'clear')
 
     print("Redirecting to the menu...")
-    time.sleep(2)
+    time.sleep(30)
     menuFeature()
 
 def majorTranscript():
