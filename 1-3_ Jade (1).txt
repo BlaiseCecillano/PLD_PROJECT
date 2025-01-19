@@ -1,0 +1,108 @@
+import os
+import csv
+import time
+
+def startFeature():
+    print("Welcome to the Student Management System")
+
+    student_level = input("Please select your student level (U for Undergraduate, G for Graduate, B for Both): ").upper()
+    while student_level not in ['U', 'G', 'B']:
+        print("Invalid input. Please choose from U, G, or B.")
+        student_level = input("Please select your student level (U for Undergraduate, G for Graduate, B for Both): ").upper()
+
+    # 9 digits of student ID
+    student_id = input("Please enter your 9-digit student ID: ")
+    while not student_id.isdigit() or len(student_id) != 9:
+        print("Invalid student ID. Please ensure it is exactly 9 digits.")
+        student_id = input("Please enter your 9-digit student ID: ")
+
+    print("Processing your selection...")
+    time.sleep(1)
+
+    # function to display student details
+    studentDetails(student_level, student_id)
+
+def studentDetails(student_level, student_id):
+    print("Displaying student details...")
+
+    # folder path where the files are stored
+    folder_path = r"C:\Users\admin\OneDrive\Desktop\PLD-FinalProj"
+
+    # check file name base on the Student ID
+    file_name = f"std{student_id}Details.csv"
+    file_path = os.path.join(folder_path, file_name)
+
+    if not os.path.exists(file_path):
+        print(f"No file found for Student ID {student_id}.")
+        return
+
+    # display details of the selected CSV file
+    with open(file_path, mode='r') as file:
+        csv_reader = csv.DictReader(file)
+        
+        for row in csv_reader:
+            try:
+                # .get() in case there are missing columns
+                name = row.get('Name', 'N/A')
+                student_id_column = row.get('Student ID', 'N/A')
+                level = row.get('Level(s)', 'N/A')
+                number_of_terms = row.get('Number of Terms', 'N/A')
+                colleges = row.get('College(s)', 'N/A')
+                departments = row.get('Department(s)', 'N/A')
+                print("-" * 30)
+                print(f"Name: {name}")
+                print(f"Student ID: {student_id_column}")
+                print(f"Level(s): {level}")
+                print(f"Number of Terms: {number_of_terms}")
+                print(f"College(s): {colleges}")
+                print(f"Department(s): {departments}")
+                print("-" * 30)
+            except KeyError as e:
+                print(f"Missing column: {e} in row. Skipping this row.")
+
+    # Pause for 5 seconds before clearing the screen
+    time.sleep(5)
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+    print("Redirecting to the menu...")
+    time.sleep(5)  # delay before returning to the menu
+    menuFeature()
+
+def menuFeature():
+    while True:
+        print("\nStudent Management System Menu")
+        print("1. Student Details")
+        print("2. Statistics")
+        print("3. Transcript based on major courses")
+        print("4. Transcript based on minor courses")
+        print("5. Full transcript")
+        print("6. Previous transcript requests")
+        print("7. Select another student")
+        print("8. Terminate the system")
+
+        choice = input("Please select an option (1-8): ")
+
+        if choice == '1':
+            startFeature()
+        elif choice == '2':
+            statisticsFeature()
+        elif choice == '3':
+            majorTranscript()
+        elif choice == '4':
+            minorTranscript()
+        elif choice == '5':
+            fullTranscript()
+        elif choice == '6':
+            previousRequests()
+        elif choice == '7':
+            startFeature()
+        elif choice == '8':
+            print("Terminating the system...")
+            break
+    else:
+        print("Invalid choice. Please try again.")
+
+if __name__ == "__main__":
+    startFeature()
+
+
