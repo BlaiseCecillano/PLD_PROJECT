@@ -1,0 +1,200 @@
+[33mcommit e807889dd2fa6d2395b32c11bcbf1aadda4b7f25[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Mary Jade Galban <maryjadebgalban@iskolarngbayan.pup.edu.ph>
+Date:   Sun Jan 19 21:26:12 2025 +0800
+
+    Removed invalid files causing checkout issues
+
+[33mcommit 1e4958ced9de20560ff2ffb6a70cdeefc5080634[m
+Author: Smmaico24 <stifaniemmaico@iskolarngbayan.pup.edu.ph>
+Date:   Sun Jan 19 14:48:06 2025 +0800
+
+    Update 9-10: Stifanie
+
+[33mcommit fb65c2e4826f6b701f85ccef5a34b112a9821f99[m
+Author: Mary Jade Galban <maryjadebgalban@iskolarngbayan.pup.edu.ph>
+Date:   Sun Jan 19 01:23:07 2025 +0800
+
+    Update 1-3: Jade
+    
+    display student details
+    pull up details from CSV file stored on the same file path
+
+[33mcommit b69b503abb4c009bbaf5536a940da14f7cc24103[m
+Author: Mary Jade Galban <maryjadebgalban@iskolarngbayan.pup.edu.ph>
+Date:   Sat Jan 18 22:19:53 2025 +0800
+
+    Update 1-3: Jade
+    
+    changes to delay 30 seconds
+
+[33mcommit 616a8a3bbaff05dce9b69e4479c6d1f360118c53[m
+Author: Blaise Isaac <blaisececillano22@gmail.com>
+Date:   Wed Jan 15 14:20:26 2025 +0800
+
+    Create numpy.py
+    
+    numpy file
+
+[33mcommit 6c2bf4cf788d0a98b9704a17c2c196654354a619[m
+Author: Mary Jade Galban <maryjadebgalban@iskolarngbayan.pup.edu.ph>
+Date:   Sun Jan 12 23:10:26 2025 +0800
+
+    Update 1-3: Jade
+
+[33mcommit 4ed4c74cbf419a64abeac8848edb3a68404891df[m
+Author: Mary Jade Galban <maryjadebgalban@iskolarngbayan.pup.edu.ph>
+Date:   Sun Jan 12 23:08:57 2025 +0800
+
+    Update 1-3: Jade
+
+[33mcommit fc502ada790aeb19b3f527aaa00d5fd87512abbf[m
+Author: Mary Jade Galban <maryjadebgalban@iskolarngbayan.pup.edu.ph>
+Date:   Sun Jan 12 23:07:59 2025 +0800
+
+    Update 1-3: Jade
+
+[33mcommit 69c3860d10bdc9fcc3e5959d2ed03cb82ce302bc[m
+Author: Smmaico24 <stifaniemmaico@iskolarngbayan.pup.edu.ph>
+Date:   Sun Jan 12 23:02:36 2025 +0800
+
+    Rename 3-4: Blaise to 4: Blaise
+
+[33mcommit 4218bba94243639bab0fd31e7dd22bebd8148ba3[m
+Author: Smmaico24 <stifaniemmaico@iskolarngbayan.pup.edu.ph>
+Date:   Sun Jan 12 23:02:21 2025 +0800
+
+    Rename 1-2: Jade to 1-3: Jade
+
+[33mcommit f6fdf702b513dc8b5173d159975160f025cdaf16[m
+Author: Smmaico24 <stifaniemmaico@iskolarngbayan.pup.edu.ph>
+Date:   Sun Jan 12 22:58:18 2025 +0800
+
+    Rename 4: Blaise to 3-4: Blaise
+
+[33mcommit 979aead164f9f7ee696ed91440e4cbaf68eacfa5[m
+Author: Smmaico24 <stifaniemmaico@iskolarngbayan.pup.edu.ph>
+Date:   Sun Jan 12 22:58:03 2025 +0800
+
+    Rename 1-3: Jade to 1-2: Jade
+
+[33mcommit 893c418e8ce34a3e36c842cf4999e1f09850bfce[m
+Author: Mary Jade Galban <maryjadebgalban@iskolarngbayan.pup.edu.ph>
+Date:   Sun Jan 12 22:56:32 2025 +0800
+
+    Update 1-3: Jade
+
+[33mcommit 9e7c4b2d556d4eeba58fe09520e12bd8e3cae5a0[m
+Author: Mary Jade Galban <maryjadebgalban@iskolarngbayan.pup.edu.ph>
+Date:   Sun Jan 12 22:54:41 2025 +0800
+
+    Update 1-3: Jade
+    
+    napasama po ang major minor transcript pero di po nag ra-run
+
+[33mcommit 5569de176900f52abbd5860db18e152b6db3c2f0[m
+Author: Smmaico24 <stifaniemmaico@iskolarngbayan.pup.edu.ph>
+Date:   Sun Jan 12 22:42:24 2025 +0800
+
+    Create 9-10: Stifanie
+
+[33mcommit e632675c4a2fe3988808b4d78e7fe83b2544de44[m
+Author: Smmaico24 <stifaniemmaico@iskolarngbayan.pup.edu.ph>
+Date:   Sun Jan 12 22:42:05 2025 +0800
+
+    Create 7-8: Juan Carlo
+
+[33mcommit 04a8cfa26a26b14894b04e0f1a90858e249002cb[m
+Author: Smmaico24 <stifaniemmaico@iskolarngbayan.pup.edu.ph>
+Date:   Sun Jan 12 22:41:46 2025 +0800
+
+    Create 5-6: Karen
+
+[33mcommit 8891a69d7ae9ff2ef4b7d8a608cb07dedc5451d0[m
+Author: Smmaico24 <stifaniemmaico@iskolarngbayan.pup.edu.ph>
+Date:   Sun Jan 12 22:41:28 2025 +0800
+
+    Create 4: Blaise
+
+[33mcommit 9352170a684ffeaa658a2fc519ac68e264992ad5[m
+Author: Smmaico24 <stifaniemmaico@iskolarngbayan.pup.edu.ph>
+Date:   Sun Jan 12 22:41:12 2025 +0800
+
+    Create 1-3: Jade
+
+[33mcommit 4a434bd38a68d1f4923fada3075da70b0b84649c[m
+Author: Smmaico24 <stifaniemmaico@iskolarngbayan.pup.edu.ph>
+Date:   Sun Jan 12 22:39:35 2025 +0800
+
+    Update README.md
+
+[33mcommit 6b9affaafe206d40d1fe06253985c258d3a43c3e[m
+Author: Blaise Isaac <blaisececillano22@gmail.com>
+Date:   Fri Jan 10 06:58:55 2025 +0800
+
+    Add files via upload
+    
+    official code file
+
+[33mcommit fcfb7cf0ee69220b4d4cd4b20f7e96ef3d49f767[m
+Author: Blaise Isaac <blaisececillano22@gmail.com>
+Date:   Fri Jan 10 06:57:57 2025 +0800
+
+    Delete .github/workflows/ASSIGNMENT_ACT_5_PLD_N_3.py
+    
+    cleaning this as it is just a test upload
+
+[33mcommit 6b2f3246bf02f3a1392678366ce9b23fbe74a591[m
+Author: Blaise Isaac <blaisececillano22@gmail.com>
+Date:   Fri Jan 10 06:57:30 2025 +0800
+
+    Delete .github/workflows/Jade.py
+    
+    cleaning up our coding environment
+
+[33mcommit f64a8f90c9e9d0fef67142b226d73b03ca7fb833[m
+Author: Blaise Isaac <blaisececillano22@gmail.com>
+Date:   Sun Jan 5 23:46:16 2025 +0800
+
+    Update and rename Jade to Jade.py
+
+[33mcommit 287fdddc04f26b709b0c884681a1ee6f38fd2113[m
+Author: Mary Jade Galban <maryjadebgalban@iskolarngbayan.pup.edu.ph>
+Date:   Sun Jan 5 23:45:39 2025 +0800
+
+    Update blank.yml
+
+[33mcommit a20530b147c16fa47b1a03fb482d2fb5094c8b77[m
+Author: Blaise Isaac <blaisececillano22@gmail.com>
+Date:   Sun Jan 5 23:44:17 2025 +0800
+
+    Update ASSIGNMENT_ACT_5_PLD_N_3.py
+
+[33mcommit 5ec7119d6bbce2c7bc702b363f6bd196ac6bb607[m
+Author: Blaise Isaac <blaisececillano22@gmail.com>
+Date:   Sun Jan 5 23:41:08 2025 +0800
+
+    Add files via upload
+
+[33mcommit a1152e96d2f84a7fafee7998c4e07b193d23d7fe[m
+Author: Mary Jade Galban <maryjadebgalban@iskolarngbayan.pup.edu.ph>
+Date:   Sun Jan 5 22:48:48 2025 +0800
+
+    Create Jade
+
+[33mcommit 434b87eb46cd09e8cc9b656d3832f73bcb5ed199[m
+Author: Blaise Isaac <blaisececillano22@gmail.com>
+Date:   Sun Jan 5 22:47:22 2025 +0800
+
+    Create blank.yml
+
+[33mcommit 0c655f595c36912d75db19c0873aaa535165cef4[m
+Author: Blaise Isaac <blaisececillano22@gmail.com>
+Date:   Mon Dec 23 15:38:35 2024 +0800
+
+    Update README.md
+
+[33mcommit e29d967f86a5749d261c739b85c398810a976997[m
+Author: Blaise Isaac <blaisececillano22@gmail.com>
+Date:   Mon Dec 23 15:37:05 2024 +0800
+
+    Initial commit
