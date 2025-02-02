@@ -1,0 +1,160 @@
+import time
+import os
+import csv
+
+def pause():
+    print("Processing! \nPlease Wait ....")
+    time.sleep(2)
+divider = "==========================================================================="
+
+print("welcome to transcript generation system".upper())
+def startFeature():
+    student_level = input("Select the student level (U for Undergraduate, G for Graduate, and B for both): ")
+    if student_level not in ['U','G','B','u','g','b']:
+        print("Invalid ! try again ")
+        startFeature()
+
+    degree = input("Select the Degree (M for master, D for doctorate or BO for both): ")
+    if degree not in ['M', 'D', 'BO', 'm', 'd', 'bo']:
+        print("Invalid ! try again ")
+        startFeature()
+    pause()
+
+def studentID():
+    def menuFeature():
+
+        def details():
+            with open('studentDetails.csv', 'r') as file:
+                reader = csv.reader(file)
+                for line in reader:
+                    if student_id == line[1]:
+                        print(
+                            f" Name: {line[2]:<35}stdID: {line[1]}\n",
+                            f"College: {line[4]:<32}Department: {line[3]}\n",
+                            f"Major: {line[7]:<34}Minor: {line[8]}\n",
+                            f"level: {line[5]:<34}Number of terms: {line[9]}",)
+                        break
+                        
+        def studentDetails():
+            print(divider+"\nStudent Details\n"+divider)
+            with open('studentDetails.csv', 'r') as file:
+                reader = csv.reader(file)
+                for line in reader:
+                    if student_id == line[1]:
+                        print(f"Student ID: {line[1]}\nName: {line[2]}\nLevel(s): {line[5]}\nNumber of Terms: {line[9]}\nCollege(s): {line[4]}\nDepartment: {line[3]}\n{divider}")
+                        break
+        # def statisticsFeature():
+        #     with open(f'{student_id}.csv', 'r') as file:
+        #         reader = csv.reader(file)
+        #         next(reader)
+        #         for line in reader:
+        #             print(f"{divider}\n***********"
+        #             break
+        def majorTranscriptFeature():
+            details()
+            print(
+                f"{divider}\n***************************      Term 1      *****************************\n{divider}\n",
+                f"course ID\t\tcourse Name\t\tcredit hours\tgrade")
+            with open(f'{student_id}.csv', 'r') as file:
+                reader = csv.reader(file)
+                next(reader)
+                total = 0
+                count = 0
+                for line in reader:
+                    if'Major' == line[5]and '1' == line[2]:
+                        print(f"{line[4]:<12}{line[3]:40}{line[6]:<13}{line[7]}")
+                        total += float(line[7])
+                        count += 1
+                average = total/count
+            with open(f'{student_id}.csv', 'r') as file:
+                reader = csv.reader(file)
+                next(reader)
+                overtotal = 0
+                overcount = 0
+                for line in reader:
+                    if'1' == line[2]:
+                        overtotal += float(line[7])
+                        overcount += 1
+                overaverage = overtotal/overcount
+                print(f"Major Average = {average}\t\t\tOverall Average = {overaverage}")
+            print(
+                f"{divider}\n***************************      Term 2      *****************************\n{divider}\n",
+                f"course ID\t\tcourse Name\t\tcredit hours\tgrade")
+            with open(f'{student_id}.csv', 'r') as file:
+                reader = csv.reader(file)
+                next(reader)
+                total = 0
+                count = 0
+                for line in reader:
+                    if'Major' == line[5]and '2' == line[2]:
+                        print(f"{line[4]:<12}{line[3]:40}{line[6]:<13}{line[7]}")
+                        total += float(line[7])
+                        count += 1
+                average = total/count
+            with open(f'{student_id}.csv', 'r') as file:
+                reader = csv.reader(file)
+                next(reader)
+                overtotal = 0
+                overcount = 0
+                for line in reader:
+                    if'2' == line[2]:
+                        overtotal += float(line[7])
+                        overcount += 1
+                overaverage = overtotal/overcount
+                print(f"Major Average = {average}\t\t\tOverall Average = {overaverage}")
+            print(
+                f"{divider}\n********************      End of Transcript      **************************\n{divider}\n")
+
+                    
+            
+            
+
+
+
+
+        print("Student Transcript Generation System\n"+ divider)
+        print("1. Student Details\n2. Statistics"
+            "\n3. Transcript based on major courses\n4. Transcript based on minor courses"
+            "\n5. Full transcript\n6. Previous transcript request"
+            "\n7. Select another student\n8. Terminate the system\n"+divider)
+        
+        choice = int(input("Enter your feature(1-8): "))
+        number_of_choices = [1,2,3,4,5,6,7,8]
+        if choice == 1:
+            studentDetails()
+            another = input("Do you want to choose another feature? (Y/N): ")
+            if another in ['Y','y']:
+                menuFeature()
+            else:
+                print("Thank you for using our system!")
+        elif choice == 3:
+            majorTranscriptFeature()
+            another = input("Do you want to choose another feature? (Y/N): ")
+            if another in ['Y','y']:
+                menuFeature()
+            else:
+                print("Thank you for using our system!")
+        elif choice not in number_of_choices:
+            print("Invalid ! try again ")
+            pause()
+            menuFeature()
+
+    student_id =input("Enter your Student ID: ")
+    pause()
+    with open('studentDetails.csv','r') as file:
+        reader = csv.reader(file)
+        next(reader)
+        for line in reader:
+            if student_id == line[1]:
+                print(f"\nWelcome {line[2]}!\n")
+                menuFeature()
+                break
+            elif student_id.isalpha():
+                print("Invalid Character ! Try again")
+                studentID()
+        else:
+                print("Invalid ID ! Try again")
+                studentID()
+
+startFeature()
+studentID()
